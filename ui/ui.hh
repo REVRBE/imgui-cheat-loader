@@ -17,8 +17,8 @@ namespace ui {
 
 namespace ui {
 	inline LPDIRECT3DDEVICE9 dev;
-	inline const char* window_title = "imgui cheat loader | REVRBE#7036";
-	inline const char* colorSchemes[] = { "Dark", "Light", "Classic" };
+	inline const char* window_title = "smokescreen.gg";
+	inline const char* colorSchemes[] = { "Standard", "Cinder", "Green colorway", "Blue colorway", "Purple/orange colorway", "Dark mode", "Rainbow colorway" };
 }
 
 namespace ui {
