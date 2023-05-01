@@ -13,7 +13,9 @@ It works with default installation of XenForo.
 2. Update a few lines of code and that should be all.
 
 <h3>TO-DO on this project:</h3>
-  ✅ Add XenForo support. (username, password & highest rank)
+  ✅ Added XenForo support. (username, password & highest rank)
+  
+  ✅ Added nice colorways 
   
   ❌ Add "days left" to rank VIP to track subscriptions. (or other rank)
   
