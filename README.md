@@ -19,7 +19,8 @@ It works with default installation of XenForo.
   
   ❌ Add "days left" to rank VIP to track subscriptions. (or other rank)
   
-  ❌ Add encryption for data transmissions (client to server) - SHA1 encryption on hashed passwords by default for XenForo
+  ✅ Add encryption for data transmissions (TLS/SSL)  
+  (btw... SHA1 encryption on hashed passwords by default for XenForo)
   
   ❌ Add more customizations to the UI
 
