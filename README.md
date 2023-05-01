@@ -15,7 +15,7 @@ It works with default installation of XenForo.
 <h3>TO-DO on this project:</h3>
   ✅ Added XenForo support. (username, password & highest rank)
   
-  ✅ Added nice colorways 
+  ✅ Added nice colorways (Cinder + 6 custom ones)
   
   ❌ Add "days left" to rank VIP to track subscriptions. (or other rank)
   
