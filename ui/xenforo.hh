@@ -42,6 +42,10 @@ bool checkLoginCredentials(const std::string& username, const std::string& passw
         struct curl_slist* headers = NULL;
         headers = curl_slist_append(headers, "Content-Type: application/x-www-form-urlencoded");
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+        
+        //TLS/SSL
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L); // Verify the server's certificate
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L); // Verify the server's identity
 
         res = curl_easy_perform(curl);
 
@@ -66,7 +70,6 @@ bool checkLoginCredentials(const std::string& username, const std::string& passw
 
         if (jsonData["success"].asBool()) {
             std::string user_rank_received = jsonData["user_rank"].asString();
-            std::cout << "Received user rank: " << user_rank_received << std::endl; // Debug statement
             globals.user_rank = user_rank_received;
             return true;
         }
