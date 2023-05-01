@@ -1,4 +1,4 @@
-<h1>imgui cheat loader + XenForo authentication</h1>
+<h1>imgui cheat loader base + XenForo authentication</h1>
 
 <h2>Usage</h2>
 https://github.com/noteffex/ImGui-Loader-Base
