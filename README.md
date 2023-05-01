@@ -4,6 +4,7 @@
 
 <h2>Usage</h2>
 https://github.com/noteffex/ImGui-Loader-Base
+![accept](https://user-images.githubusercontent.com/129604052/235536741-b743da4c-ff80-4eaf-bc8e-5e8f91a62902.png)
 
 Basicly this repo, but I've added XenForo authentication which check the user/pass from server-side and returns rank on succesful login e.g. Admin/VIP/other rank name from XenForo. This essentially is made for authenticating subscriptions by checking the rank of the forum-user. If the correct rank is returned, then access to load cheat is given.
 
