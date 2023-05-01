@@ -30,7 +30,7 @@ Use a secure database password (it can be up to 128 characters - maybe even chan
 
 Use a reliable/secure web-hosting
 
-Add/make a script that notifies you with an mail to your personel/work mail-address when something fishy is going on in the database, so you can react quickly.
+Add/make a script that notifies you with a mail to your personel/work mail-address when something fishy is going on in the database, so you can react quickly.
 
 If you really want to go all-in, then look up Cloudflare WAF
 
