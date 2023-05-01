@@ -24,6 +24,13 @@ It works with default installation of XenForo.
   
   ❌ Add more customizations to the UI
 
+<h3>Ways to avoid database breaches</h3>
+
+Use a secure database password (it can be up to 128 characters - maybe even change it regularly)
+Use a reliable/secure web-hosting
+Add/make a script that notifies you with an mail to your personel/work mail-address when something fishy is going on in the database, so you can react quickly.
+If you really want to go all-in, then look up Cloudflare WAF
+
 <h3>Personal Note</h3>
 
 I don't know why, but instead of going to sleep I produced this.... :P
