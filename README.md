@@ -14,7 +14,9 @@ It works with default installation of XenForo.
 
 <h3>TO-DO on this project:</h3>
   ✅ Add XenForo support. (username, password & highest rank)
+  
   ❌ Add "days left" to rank VIP to track subscriptions. (or other rank)
+  
   ❌ Add encryption for data transmissions (client to server) - SHA1 encryption on hashed passwords by default for XenForo
 
 
