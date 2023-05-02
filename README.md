@@ -11,7 +11,16 @@ It works with default installation of XenForo.
 
 1. You need to put "login.php" file in your web-hotel (put it in standard XenForo folder) and update the database settings. 
 2. Update a few lines of code and that should be all.
-3. You need to add this to the xf_user table in phpMyAdmin to make the sub-counter work. Run this SQL code:
+3. I've added prepared statements in the login.php file for basic protection against SQL injection - please update ".htaccess" with these lines of code:
+
+```
+SetEnv DB_SERVERNAME your_servername // change it to your database settings
+SetEnv DB_USERNAME your_username
+SetEnv DB_PASSWORD your_password
+SetEnv DB_NAME your_db_name
+```
+
+4. You need to add this to the xf_user table in phpMyAdmin to make the sub-counter work. Run this SQL code:
 
 ```
 ALTER TABLE xf_user
