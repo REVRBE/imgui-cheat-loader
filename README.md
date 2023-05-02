@@ -54,7 +54,7 @@ CREATE TABLE xf_login_attempts (
   
   ✅ Added TLS/SSL encryption
   
-  ✅ Basic protection against SQL injection
+  ✅ Medium protection against SQL injection
     
   ❌ Add more customizations to the UI
 
