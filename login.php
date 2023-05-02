@@ -53,15 +53,18 @@ function checkPassword($user_pass, $hashed_pass){
 }
 
 function getUserRank($username, $conn) {
-    if ($stmt = mysqli_prepare($conn, "SELECT xf_user_group.title FROM xf_user_group WHERE xf_user_group.user_group_id IN (SELECT xf_user.user_group_id FROM xf_user WHERE xf_user.username = ? UNION SELECT secondary_group_ids FROM xf_user WHERE xf_user.username = ?) ORDER BY xf_user_group.display_style_priority DESC LIMIT 1")) {
-        mysqli_stmt_bind_param($stmt, "ss", $username, $username);
+    if ($stmt = mysqli_prepare($conn, "SELECT xf_user_group.title, xf_user.vip_end_time FROM xf_user_group INNER JOIN xf_user ON FIND_IN_SET(xf_user_group.user_group_id, xf_user.secondary_group_ids) OR xf_user_group.user_group_id = xf_user.user_group_id WHERE xf_user.username = ? ORDER BY xf_user_group.display_style_priority DESC LIMIT 1")) {
+        mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $user_rank);
+        mysqli_stmt_bind_result($stmt, $user_rank, $vip_end_time);
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt);
 
         if ($user_rank !== null) {
-            return $user_rank;
+            if ($user_rank === 'VIP') {
+                return ['user_rank' => $user_rank, 'vip_end_time' => $vip_end_time];
+            }
+            return ['user_rank' => $user_rank];
         }
     }
     return null;
