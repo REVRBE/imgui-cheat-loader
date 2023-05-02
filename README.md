@@ -11,7 +11,7 @@ It works with default installation of XenForo.
 
 1. You need to put "login.php" file in your web-hotel (put it in standard XenForo folder) and update the database settings. 
 2. Update a few lines of code and that should be all.
-3. You need to add this to the xf_user table in phpMyAdmin to make the sub-counter work.
+3. You need to add this to the xf_user table in phpMyAdmin to make the sub-counter work. Run this SQL code:
 
 ```
 ALTER TABLE xf_user
