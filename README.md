@@ -41,6 +41,8 @@ WHERE user_id = <user_id>;
   ✅ Add "days left" to rank VIP to track subscriptions. (currently has to manually add it to each VIP - next I'll create .php script for doing it automaticly.)
   
   ✅ Added TLS/SSL encryption
+  
+  ✅ Basic protection against SQL injection
     
   ❌ Add more customizations to the UI
 
