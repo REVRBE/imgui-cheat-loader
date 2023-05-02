@@ -13,6 +13,17 @@ It works with default installation of XenForo.
 2. Update a few lines of code and that should be all.
 3. You need to add this to the xf_user table in phpMyAdmin:
 
+```
+ALTER TABLE xf_user
+ADD COLUMN vip_end_time DATETIME DEFAULT NULL;
+
+ // and then this after to update a single users vip to 1 month, pretty simple to make a script that does this automaticly 
+
+UPDATE xf_user
+SET user_group_id = <VIP_group_id>, vip_end_time = DATE_ADD(NOW(), INTERVAL 1 MONTH)
+WHERE user_id = <user_id>;
+```
+
 <h3>TO-DO on this project:</h3>
   ✅ Added XenForo support. (username, password & highest rank)
   
