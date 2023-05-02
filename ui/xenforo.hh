@@ -70,7 +70,6 @@ bool checkLoginCredentials(const std::string& username, const std::string& passw
 
         if (jsonData["success"].asBool()) {
             std::string user_rank_received = jsonData["user_rank_data"]["user_rank"].asString();
-            std::cout << "Received user rank: " << user_rank_received << std::endl; // Debug statement
             globals.user_rank = user_rank_received;
 
             if (user_rank_received == "VIP") {
