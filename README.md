@@ -31,6 +31,19 @@ ADD COLUMN vip_end_time DATETIME DEFAULT NULL;
 UPDATE xf_user
 SET user_group_id = <VIP_group_id>, vip_end_time = DATE_ADD(NOW(), INTERVAL 1 MONTH)
 WHERE user_id = <user_id>;
+
+ // and also add this for extra sql injection protection
+ 
+ USE your_database_name; // insert your database name
+
+CREATE TABLE xf_login_attempts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    login_attempts INT NOT NULL DEFAULT 0,
+    last_login_attempt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (username)
+);
+
 ```
 
 <h3>TO-DO on this project:</h3>
