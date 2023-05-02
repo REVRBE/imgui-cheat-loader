@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Replace these values with your actual database credentials
-    $servername = "your_host_name";
-    $db_username = "your_database_username";
-    $db_password = "your_database_password";
-    $db_name = "your_database_name";
+    // Use environment variables for database credentials
+    $servername = getenv('DB_SERVERNAME');
+    $db_username = getenv('DB_USERNAME');
+    $db_password = getenv('DB_PASSWORD');
+    $db_name = getenv('DB_NAME');
 
     $conn = new mysqli($servername, $db_username, $db_password, $db_name);
 
@@ -21,51 +21,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $hashed_password = getPassword($username, $conn);
 
-	if ($hashed_password && checkPassword($password, $hashed_password)) {
-    $user_rank = getUserRank($username, $conn);
-    echo json_encode(['success' => true, 'user_rank' => $user_rank]);
-} else {
-    echo json_encode(['success' => false, 'message' => 'Incorrect username or password']);
-}
+    if ($hashed_password && password_verify($password, $hashed_password)) { // Use password_verify
+        $user_rank_data = getUserRank($username, $conn);
+        echo json_encode(['success' => true, 'user_rank_data' => $user_rank_data]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Incorrect username or password']);
+    }
     $conn->close();
 }
 
 function getPassword($username, $conn) {
-    if ($stmt2 = mysqli_prepare($conn, "SELECT data FROM xf_user_authenticate WHERE user_id = (SELECT user_id FROM xf_user WHERE username = ?)")) {
-        mysqli_stmt_bind_param($stmt2, "s", $username);
-        mysqli_stmt_execute($stmt2);
-        mysqli_stmt_bind_result($stmt2, $password);
-        mysqli_stmt_fetch($stmt2);
-        mysqli_stmt_close($stmt2);
+    $stmt = $conn->prepare("SELECT data FROM xf_user_authenticate WHERE user_id = (SELECT user_id FROM xf_user WHERE username = ?)");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($password);
+    $stmt->fetch();
+    $stmt->close();
 
-        if ($password !== null) {
-            $password = substr($password, 22, -3);
-            return $password;
-        }
+    if ($password !== null) {
+        $password = substr($password, 22, -3);
+        return $password;
     }
-}
-
-function checkPassword($user_pass, $hashed_pass){
-    if (password_verify($user_pass, $hashed_pass)) {
-        return true;
-    }
-    return false;
+    return null;
 }
 
 function getUserRank($username, $conn) {
-    if ($stmt = mysqli_prepare($conn, "SELECT xf_user_group.title, xf_user.vip_end_time FROM xf_user_group INNER JOIN xf_user ON FIND_IN_SET(xf_user_group.user_group_id, xf_user.secondary_group_ids) OR xf_user_group.user_group_id = xf_user.user_group_id WHERE xf_user.username = ? ORDER BY xf_user_group.display_style_priority DESC LIMIT 1")) {
-        mysqli_stmt_bind_param($stmt, "s", $username);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $user_rank, $vip_end_time);
-        mysqli_stmt_fetch($stmt);
-        mysqli_stmt_close($stmt);
+    $stmt = $conn->prepare("SELECT xf_user_group.title, xf_user.vip_end_time FROM xf_user_group INNER JOIN xf_user ON FIND_IN_SET(xf_user_group.user_group_id, xf_user.secondary_group_ids) OR xf_user_group.user_group_id = xf_user.user_group_id WHERE xf_user.username = ? ORDER BY xf_user_group.display_style_priority DESC LIMIT 1");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($user_rank, $vip_end_time);
+    $stmt->fetch();
+    $stmt->close();
 
-        if ($user_rank !== null) {
-            if ($user_rank === 'VIP') {
-                return ['user_rank' => $user_rank, 'vip_end_time' => $vip_end_time];
-            }
-            return ['user_rank' => $user_rank];
+    if ($user_rank !== null) {
+        if ($user_rank === 'VIP') {
+            return ['user_rank' => $user_rank, 'vip_end_time' => $vip_end_time];
         }
+        return ['user_rank' => $user_rank];
     }
     return null;
 }
