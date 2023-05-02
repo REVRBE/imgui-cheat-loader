@@ -55,6 +55,8 @@ CREATE TABLE xf_login_attempts (
   ✅ Added TLS/SSL encryption
   
   ✅ Medium protection against SQL injection
+  
+  ❌ PHP script that is scheduled to run every 5 minute for example to update every user of rank VIP with vip_end_time value of NULL to 1 month subscription
     
   ❌ Add more customizations to the UI
 
