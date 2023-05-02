@@ -20,9 +20,8 @@ It works with default installation of XenForo.
   ❌ Add "days left" to rank VIP to track subscriptions. (or other rank)
   
   ✅ Added TLS/SSL encryption
-  (btw... SHA-1 encryption on hashed passwords by default for XenForo)
   
-  ❌ Change SHA-1 to SHA-256 for keeping the users data safe
+  ❌ Change SHA-1 to SHA-256 for keeping the users data safe   (btw... SHA-1 encryption on hashed passwords by default for XenForo)
   
   ❌ Add more customizations to the UI
 
