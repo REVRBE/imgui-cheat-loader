@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize user input to prevent XSS attacks
     $username = htmlspecialchars(trim($_POST['username']));
 
-    // Use environment variables for database credentials
+    // Put database credentials in .htaccess
     $servername = getenv('DB_SERVERNAME');
     $db_username = getenv('DB_USERNAME');
     $db_password = getenv('DB_PASSWORD');
