@@ -19,7 +19,6 @@ void ui::renderSecondPrompt() {
     if (user_rank_local == "VIP") {
         ImGui::Text("VIP ends at: %s", globals.vip_end_time.c_str()); // Display the VIP end time
     }
-    // Render your second prompt interface here
 
     ImGui::Spacing();
 
@@ -126,7 +125,6 @@ void ui::render() {
             applyColorScheme(colorSchemes[currentColorScheme]);
         }
         else {
-            // Render second prompt
             renderSecondPrompt();
         }
     }
