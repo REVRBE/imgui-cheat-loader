@@ -43,8 +43,6 @@ Use a reliable/secure web-hosting
 
 Add/make a script that notifies you with a mail to your personel/work mail-address when something fishy is going on in the database, so you can react quickly.
 
-Maybe even change the hashing of passwords in XenForo from SHA-1 to SHA-256. (after taking a look at the XenForo src I think it's pretty easy to convert it to use SHA-256 instead)
-
 If you really want to go all-in, then look up Cloudflare WAF
 
 <h3>Personal Note</h3>
