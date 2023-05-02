@@ -32,9 +32,7 @@ WHERE user_id = <user_id>;
   ✅ Add "days left" to rank VIP to track subscriptions. (currently has to manually add it to each VIP - next I'll create .php script for doing it automaticly.)
   
   ✅ Added TLS/SSL encryption
-  
-  ❌ Change SHA-1 to SHA-256 for keeping the users data safe   (btw... SHA-1 encryption on hashed passwords by default for XenForo)
-  
+    
   ❌ Add more customizations to the UI
 
 <h3>Ways to avoid database breaches</h3>
