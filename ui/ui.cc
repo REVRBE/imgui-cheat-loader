@@ -15,6 +15,10 @@ void ui::renderSecondPrompt() {
     std::string user_rank_local = globals.user_rank; // Create a local copy of the user rank
     ImGui::Text("Welcome, %s!", globals.user_name);
     ImGui::Text("Rank: %s", user_rank_local.c_str()); // Use the local copy of the user rank
+	
+    if (user_rank_local == "VIP") {
+        ImGui::Text("VIP ends at: %s", globals.vip_end_time.c_str()); // Display the VIP end time
+    }
     // Render your second prompt interface here
 
     ImGui::Spacing();
@@ -39,8 +43,6 @@ void ui::renderSecondPrompt() {
         }
     }
     else {
-        ImGui::Spacing();
-        ImGui::Spacing();
         ImGui::Spacing();
         ImGui::Spacing();
         ImGui::Spacing();
