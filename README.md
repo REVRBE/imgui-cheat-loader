@@ -20,7 +20,7 @@ It works with default installation of XenForo.
   ❌ Add "days left" to rank VIP to track subscriptions. (or other rank)
   
   ✅ Added TLS/SSL encryption
-  (btw... SHA1 encryption on hashed passwords by default for XenForo)
+  (btw... SHA-1 encryption on hashed passwords by default for XenForo)
   
   ❌ Add more customizations to the UI
 
@@ -31,6 +31,8 @@ Use a secure database password (it can be up to 128 characters - maybe even chan
 Use a reliable/secure web-hosting
 
 Add/make a script that notifies you with a mail to your personel/work mail-address when something fishy is going on in the database, so you can react quickly.
+
+Maybe even change the hashing of passwords in XenForo from SHA-1 to SHA-256. (after taking a look at the XenForo src I think it's pretty easy to convert it to use SHA-256 instead)
 
 If you really want to go all-in, then look up Cloudflare WAF
 
