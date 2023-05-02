@@ -61,7 +61,7 @@ bool checkLoginCredentials(const std::string& username, const std::string& passw
 
         Json::CharReaderBuilder jsonReader;
         std::string errors;
-        Json::Value jsonData; // Define the jsonData variable
+        Json::Value jsonData; 
 
         std::istringstream jsonStream(readBuffer);
         if (!Json::parseFromStream(jsonReader, jsonStream, &jsonData, &errors)) {
