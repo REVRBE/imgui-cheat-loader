@@ -11,13 +11,16 @@ It works with default installation of XenForo.
 
 1. You need to put "login.php" file in your web-hotel (put it in standard XenForo folder) and update the database settings. 
 2. Update a few lines of code and that should be all.
+3. You need to add this to the xf_user table in phpMyAdmin: ```ALTER TABLE xf_user
+ADD COLUMN vip_end_time DATETIME DEFAULT NULL;
+```
 
 <h3>TO-DO on this project:</h3>
   ✅ Added XenForo support. (username, password & highest rank)
   
   ✅ Added nice colorways (Cinder + 6 custom ones)
   
-  ❌ Add "days left" to rank VIP to track subscriptions. (or other rank)
+  ✅ Add "days left" to rank VIP to track subscriptions. (or other rank)
   
   ✅ Added TLS/SSL encryption
   
