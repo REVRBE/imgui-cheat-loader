@@ -4,8 +4,11 @@ ini_set('display_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle form submission
-    $username = $_POST['username'];
+    $username = trim($_POST['username']);
     $password = $_POST['password'];
+
+    // Sanitize user input to prevent XSS attacks
+    $username = htmlspecialchars(trim($_POST['username']));
 
     // Use environment variables for database credentials
     $servername = getenv('DB_SERVERNAME');
@@ -19,15 +22,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die(json_encode(['success' => false, 'message' => 'Connection failed: ' . $conn->connect_error]));
     }
 
+    // Limit login attempts
+    $login_attempts = 5;
+    $login_timeout = 300; // 5 minutes in seconds
+    checkLoginAttempts($username, $conn, $login_attempts, $login_timeout);
+
     $hashed_password = getPassword($username, $conn);
 
-    if ($hashed_password && password_verify($password, $hashed_password)) { // Use password_verify
+    if ($hashed_password && password_verify($password, $hashed_password)) {
         $user_rank_data = getUserRank($username, $conn);
         echo json_encode(['success' => true, 'user_rank_data' => $user_rank_data]);
     } else {
+        incrementLoginAttempts($username, $conn);
         echo json_encode(['success' => false, 'message' => 'Incorrect username or password']);
     }
     $conn->close();
+}
+
+function checkLoginAttempts($username, $conn, $login_attempts, $login_timeout) {
+    $stmt = $conn->prepare("SELECT last_login_attempt, login_attempts FROM xf_login_attempts WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($last_login_attempt, $attempts);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($last_login_attempt !== null) {
+        $time_since_last_attempt = time() - strtotime($last_login_attempt);
+        if ($attempts >= $login_attempts && $time_since_last_attempt < $login_timeout) {
+            die(json_encode(['success' => false, 'message' => 'Too many failed login attempts. Please try again later.']));
+        }
+    }
+}
+
+function incrementLoginAttempts($username, $conn) {
+    $stmt = $conn->prepare("INSERT INTO xf_login_attempts (username, login_attempts, last_login_attempt) VALUES (?, 1, NOW()) ON DUPLICATE KEY UPDATE login_attempts = login_attempts + 1, last_login_attempt = NOW()");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->close();
 }
 
 function getPassword($username, $conn) {
