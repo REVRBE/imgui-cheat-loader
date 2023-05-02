@@ -17,7 +17,7 @@ It works with default installation of XenForo.
 ALTER TABLE xf_user
 ADD COLUMN vip_end_time DATETIME DEFAULT NULL;
 
- // and then this after to update a single users vip to 1 month, pretty simple to make a script that does this automaticly 
+ // and then this after to update a single user's vip to 1 month, pretty simple to make a script that does this automaticly 
 
 UPDATE xf_user
 SET user_group_id = <VIP_group_id>, vip_end_time = DATE_ADD(NOW(), INTERVAL 1 MONTH)
@@ -29,7 +29,7 @@ WHERE user_id = <user_id>;
   
   ✅ Added nice colorways (Cinder + 6 custom ones)
   
-  ✅ Add "days left" to rank VIP to track subscriptions. (or other rank)
+  ✅ Add "days left" to rank VIP to track subscriptions. (currently has to manually add it to each VIP - next I'll create .php script for doing it automaticly.)
   
   ✅ Added TLS/SSL encryption
   
