@@ -43,7 +43,6 @@ CREATE TABLE xf_login_attempts (
     last_login_attempt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (username)
 );
-
 ```
 
 <h3>TO-DO on this project:</h3>
