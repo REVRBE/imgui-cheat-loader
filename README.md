@@ -22,6 +22,8 @@ It works with default installation of XenForo.
   ✅ Added TLS/SSL encryption
   (btw... SHA-1 encryption on hashed passwords by default for XenForo)
   
+  ❌ Change SHA-1 to SHA-256 for keeping the users data safe
+  
   ❌ Add more customizations to the UI
 
 <h3>Ways to avoid database breaches</h3>
