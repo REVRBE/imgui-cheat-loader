@@ -69,8 +69,15 @@ bool checkLoginCredentials(const std::string& username, const std::string& passw
         }
 
         if (jsonData["success"].asBool()) {
-            std::string user_rank_received = jsonData["user_rank"].asString();
+            std::string user_rank_received = jsonData["user_rank_data"]["user_rank"].asString();
+            std::cout << "Received user rank: " << user_rank_received << std::endl; // Debug statement
             globals.user_rank = user_rank_received;
+
+            if (user_rank_received == "VIP") {
+                std::string vip_end_time = jsonData["user_rank_data"]["vip_end_time"].asString();
+                globals.vip_end_time = vip_end_time; // Store the VIP end time in the global variable
+            }
+
             return true;
         }
     }
