@@ -11,7 +11,7 @@ bool loginFailed = false;
 void ui::renderSecondPrompt() {
     const std::string& user_rank_local = globals.user_rank;
     ImGui::Text("Welcome, %s!", globals.user_name);
-    ImGui::Text("Rank: %s", user_rank_local.c_str()); // Use the local copy of the user rank
+    ImGui::Text("Rank: %s", user_rank_local.c_str()); 
 	
     if (user_rank_local == "VIP") {
         ImGui::Text("VIP ends at: %s", globals.vip_end_time.c_str()); // Display the VIP end time
