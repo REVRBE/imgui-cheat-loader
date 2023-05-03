@@ -1,6 +1,6 @@
 <h1>imgui cheat loader base + XenForo authentication</h1>
 
-![mygif](https://user-images.githubusercontent.com/129604052/235543572-214e2e5b-763c-4eaf-b36d-e437ad765c99.gif)
+![mygif (2)](https://user-images.githubusercontent.com/129604052/235855465-2417eab0-7198-4790-a79c-9115115b9047.gif)
 
 <h2>Usage</h2>
 https://github.com/noteffex/ImGui-Loader-Base <- credits to this guy
