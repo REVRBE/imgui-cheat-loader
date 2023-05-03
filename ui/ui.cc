@@ -10,7 +10,7 @@ bool loginFailed = false;
 bool loginSuccessful = false;
 
 void ui::renderSecondPrompt() {
-    std::string user_rank_local = globals.user_rank; // Create a local copy of the user rank
+    const std::string& user_rank_local = globals.user_rank;
     ImGui::Text("Welcome, %s!", globals.user_name);
     ImGui::Text("Rank: %s", user_rank_local.c_str()); // Use the local copy of the user rank
 	
