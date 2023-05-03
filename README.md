@@ -71,6 +71,8 @@ CREATE TABLE xf_login_attempts (
   
   ❌ Add so it specifies how many login tries the user has left before cooldown.
 
+  ❌ Re-write imgui base so it's DX11 instead of DX9.
+
 <h3>Ways to avoid database breaches</h3>
 
 Use a secure database password (it can be up to 128 characters - maybe even change it regularly)
