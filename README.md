@@ -48,7 +48,7 @@ CREATE TABLE xf_login_attempts (
 <h3>TO-DO on this project:</h3>
   ✅ Added XenForo support. (username, password & highest rank)
   
-  ✅ Added nice colorways (Cinder + 6 custom ones)
+  ✅ Added nice colorways (Cinder + 13 custom colorways now!)
   
   ✅ Add "days left" to rank VIP to track subscriptions. (currently has to manually add it to each VIP - next I'll create .php script for doing it automaticly.)
   
