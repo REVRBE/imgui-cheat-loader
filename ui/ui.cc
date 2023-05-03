@@ -7,7 +7,6 @@
 #include <thread>
 
 bool loginFailed = false; 
-bool loginSuccessful = false;
 
 void ui::renderSecondPrompt() {
     const std::string& user_rank_local = globals.user_rank;
@@ -79,9 +78,6 @@ void ui::render() {
             if (loginFailed) {
                 ImGui::TextColored(ImVec4(1, 0, 0, 1), "Login failed, try again.");
             }
-            if (loginSuccessful) {
-                ImGui::TextColored(ImVec4(0, 1, 0, 1), "Login successful!");
-            }
 
             ImGui::Spacing();
             static int currentColorScheme = 0;
@@ -104,7 +100,6 @@ void ui::render() {
             if (ImGui::Button("Login")) {
                 bool login = checkLoginCredentials(globals.user_name, globals.pass_word);
                 loginFailed = !login;
-                loginSuccessful = login;
 
                 if (login) {
                     std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 6000 + 2000));
