@@ -9,6 +9,7 @@ public:
 	char pass_word[255] = "pass";
 
 	std::string user_rank;
+	std::string vip_end_time; 
 
 	bool isLoggedIn = false;
 };
