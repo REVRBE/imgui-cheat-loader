@@ -21,14 +21,7 @@ void ui::renderSecondPrompt() {
     ImGui::Spacing();
 
     if (user_rank_local == "Registered" || user_rank_local == "Unregistered / Unconfirmed") {
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
+        ImGui::Dummy(ImVec2(0.0f, 10.0f));
 
         if (ImGui::Button("Renew")) {
             ShellExecute(NULL, "open", "http://your-xenforo-forum-link/forum/index.php?register/", NULL, NULL, SW_SHOWNORMAL);
@@ -40,11 +33,7 @@ void ui::renderSecondPrompt() {
         }
     }
     else {
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
-        ImGui::Spacing();
+        ImGui::Dummy(ImVec2(0.0f, 14.0f));
 
         if (ImGui::Button("Load cheat")) {
 
@@ -97,7 +86,19 @@ void ui::render() {
             ImGui::Spacing();
             static int currentColorScheme = 0;
             if (ImGui::Button("Change colors")) {
-                currentColorScheme = (currentColorScheme + 1) % 7;
+                currentColorScheme = (currentColorScheme + 1) % 14;
+
+                TCHAR tempPath[MAX_PATH];
+                GetTempPath(MAX_PATH, tempPath);
+                std::string colorSchemeFile = std::string(tempPath) + "color_scheme.txt";
+
+                std::ofstream outputFile(colorSchemeFile);
+                if (outputFile.is_open()) {
+                    outputFile << currentColorScheme;
+                    outputFile.close();
+                }
+
+                applyColorScheme(colorSchemes[currentColorScheme]);
             }
             ImGui::SameLine(0, 60);
             if (ImGui::Button("Login")) {
@@ -131,18 +132,31 @@ void ui::render() {
 
 void ui::init(LPDIRECT3DDEVICE9 device) {
     dev = device;
-	
+
+    int lastColorSchemeIndex = 0;
+
+    TCHAR tempPath[MAX_PATH];
+    GetTempPath(MAX_PATH, tempPath);
+    std::string colorSchemeFile = std::string(tempPath) + "color_scheme.txt";
+
+    std::ifstream inputFile(colorSchemeFile);
+    if (inputFile.is_open()) {
+        inputFile >> lastColorSchemeIndex;
+        inputFile.close();
+    }
+
     // colors
-    applyColorScheme(colorSchemes[0]);
+    currentColorScheme = lastColorSchemeIndex;
+    applyColorScheme(colorSchemes[currentColorScheme]);
 
-	if (window_pos.x == 0) {
-		RECT screen_rect{};
-		GetWindowRect(GetDesktopWindow(), &screen_rect);
-		screen_res = ImVec2(float(screen_rect.right), float(screen_rect.bottom));
-		window_pos = (screen_res - window_size) * 0.5f;
+    if (window_pos.x == 0) {
+        RECT screen_rect{};
+        GetWindowRect(GetDesktopWindow(), &screen_rect);
+        screen_res = ImVec2(float(screen_rect.right), float(screen_rect.bottom));
+        window_pos = (screen_res - window_size) * 0.5f;
 
-		// init images here
-	}
+        // init images here
+    }
 }
 
 void ui::applyColorScheme(const char* colorScheme) {
