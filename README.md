@@ -53,7 +53,7 @@ CREATE TABLE xf_login_attempts (
   
   ✅ Added nice colorways (Cinder + 13 custom colorways now!)
   
-  ✅ Add "days left" to rank VIP to track subscriptions. (currently has to manually add it to each VIP - next I'll create .php script for doing it automaticly.)
+  ✅ Added "days left" to rank VIP to track subscriptions. (currently has to manually add it to each VIP - next I'll create .php script for doing it automaticly.)
   
   ✅ Added TLS/SSL encryption
   
@@ -61,7 +61,9 @@ CREATE TABLE xf_login_attempts (
   
   ❌ PHP script that is scheduled to run every 5 minutes for example, to update every user of rank VIP with vip_end_time value of NULL to 1 month subscription (will probably also make it able to handle longer subscriptions) 
 
-  ❌ Also need to automate removal of rank VIP when sub counter runs out.
+  ❌ Add feature to automate removal of rank VIP when sub counter runs out.
+  
+  ❌ Add more security against unauthorized access (make it only available to the server)
     
   ❌ Add more customizations to the UI
 
