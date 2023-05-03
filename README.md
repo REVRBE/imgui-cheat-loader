@@ -66,6 +66,8 @@ CREATE TABLE xf_login_attempts (
   ❌ Add security against unauthorized access to vip handling script. (make it only accessible to the server)
     
   ❌ Add more customizations to the UI
+  
+  ❌ Add so it specifies how many login tries the user has left before cooldown.
 
 <h3>Ways to avoid database breaches</h3>
 
