@@ -63,7 +63,7 @@ CREATE TABLE xf_login_attempts (
 
   ❌ Add feature to automate removal of rank VIP when sub counter runs out.
   
-  ❌ Add more security against unauthorized access (make it only available to the server)
+  ❌ Add security against unauthorized access to vip handling script. (make it only accessible to the server)
     
   ❌ Add more customizations to the UI
 
