@@ -83,6 +83,6 @@ Add/make a script that notifies you with a mail to your personel/work mail-addre
 
 If you really want to go all-in, then look up Cloudflare WAF
 
-<h3>Personal Note</h3>
+<h3>Update</h3>
 
-I don't know why, but instead of going to sleep I produced this.... :P
+I'm currently engaged in a private project that also involves the utilization of XenForo. During this process, I've come to a realization that employing DragonByte Ecommerce surpasses the alternative of developing a fresh database entry (xf_user) to access information regarding users' remaining subscription time. By leveraging DragonByte Ecommerce, this essential data is readily available within the existing framework (xf_dbtech_ecommerce_license), eliminating the need for manual implementation. To accommodate this enhancement, a simple adjustment can be made to the code (login.php) to incorporate the reading of data from the new table.
