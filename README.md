@@ -60,14 +60,8 @@ CREATE TABLE xf_login_attempts (
   ✅ Added medium protection against SQL injection
   
   ✅ Added so it remembers last color scheme used
-  
-  ❌ PHP script that is scheduled to run every 5 minutes for example, to update every user of rank VIP with vip_end_time value of NULL to 1 month subscription (will probably also make it able to handle longer subscriptions) 
 
-  ❌ Add feature to automate removal of rank VIP when sub counter runs out.
-  
-  ❌ Add security against unauthorized access to vip handling script. (make it only accessible to the server)
-    
-  ❌ Add more customizations to the UI
+  ❌ Add support for DragonByte Ecommerce add-on
   
   ❌ Add so it specifies how many login tries the user has left before cooldown.
 
@@ -85,4 +79,4 @@ If you really want to go all-in, then look up Cloudflare WAF
 
 <h3>Update</h3>
 
-I'm currently engaged in a private project that also involves the utilization of XenForo. During this process, I've come to a realization that employing DragonByte Ecommerce surpasses the alternative of developing a fresh database entry (xf_user) to access information regarding users' remaining subscription time. By leveraging DragonByte Ecommerce, this essential data is readily available within the existing framework (xf_dbtech_ecommerce_license), eliminating the need for manual implementation. To accommodate this enhancement, a simple adjustment can be made to the code (login.php) to incorporate the reading of data from the new table.
+I'll soon be adding an updated version of the XenForo authentication script + handling in xenforo.hh
