@@ -23,7 +23,7 @@ SetEnv DB_PASSWORD your_password
 SetEnv DB_NAME your_db_name
 ```
 
-4. You need to add this to the xf_user table in phpMyAdmin to make the sub-counter work. Run this SQL code:
+4. You need to add this to the xf_user table in phpMyAdmin to make the sub-counter work (I'm soon releasing a version of the authentication script that also provide support for DragonByte Ecommerce). Run this SQL code:
 
 ```
 ALTER TABLE xf_user
@@ -79,4 +79,4 @@ If you really want to go all-in, then look up Cloudflare WAF
 
 <h3>Update</h3>
 
-I'll soon be adding an updated version of the XenForo authentication script + handling in xenforo.hh
+I'll soon be adding an updated version of the XenForo authentication script + handling in xenforo.hh so it's able to handle and retrieve more variables from the database. + DragonByte Ecommerce support being added.
