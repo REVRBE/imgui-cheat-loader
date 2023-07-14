@@ -79,4 +79,4 @@ If you really want to go all-in, then look up Cloudflare WAF
 
 <h3>Update</h3>
 
-I'll soon be adding an updated version of the XenForo authentication script + handling in xenforo.hh so it's able to handle and retrieve more variables from the database. + DragonByte Ecommerce support being added.
+I added another version of 'xenforo.hh' which has DragonByte support. Currently it's able to return all licenses; their expiry date, license id and product id. I will update the 'gui.cc' when I have some spare time, so it uses the returned data to display it. 
