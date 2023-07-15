@@ -41,7 +41,7 @@ bool checkLoginCredentials(const std::string& username, const std::string& passw
     CURL* curl;
     CURLcode res;
     std::string readBuffer;
-    std::string apiUrl = xorstr_("https://smokescreen.rip/forum/login_external.php"); // login.php file for server authentication of user/pass
+    std::string apiUrl = xorstr_("https://your-website.com/forum/login_external.php"); // login.php file for server authentication of user/pass
 
     curl = curl_easy_init();
     if (curl) {
