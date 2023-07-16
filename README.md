@@ -61,11 +61,11 @@ CREATE TABLE xf_login_attempts (
   
   ✅ Added so it remembers last color scheme used
 
-  ❌ Add support for DragonByte Ecommerce add-on
+  ✅ Add support for DragonByte Ecommerce add-on
   
   ❌ Add so it specifies how many login tries the user has left before cooldown.
 
-  ❌ Re-write imgui base so it's DX11 instead of DX9.
+  ✅ Rewritten to DX11 (https://github.com/REVRBE/revrbe-imgui-dx11-base)
 
 <h3>Ways to avoid database breaches</h3>
 
