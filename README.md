@@ -85,7 +85,7 @@ I added another version of 'xenforo.hh' which has DragonByte support. Currently 
 
 <h3>IPB authentication (Invision Power Board) supported [$]</h3>
 
-Provides the same if not better functionality than the XenForo authentication. Has the same features + entering email also works for username. Read the youtube description for more detailed information about the custom IPB authentication.  
+Provides the same if not better functionality than the XenForo authentication. Has the same features + entering email also works for username. Read the youtube description for more detailed information about my custom IPB authentication.  
 I can do expiry dates with IPB for subscriptions as well.  
 + It is possible to retrieve any information stored in the mySQL database, including the user's IP address or other stuff, if you wish to display it in your loader/UI.  
 
