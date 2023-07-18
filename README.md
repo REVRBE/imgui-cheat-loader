@@ -50,6 +50,8 @@ CREATE TABLE xf_login_attempts (
 
 <h3>TO-DO on this project:</h3>
   ✅ Added XenForo support. (username, password & highest rank)
+
+  ✅ IPB support (Custom authentication like the XenForo authentication, this method is for sale though)
   
   ✅ Added nice colorways (Cinder + 13 custom colorways now!)
   
