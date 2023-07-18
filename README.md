@@ -83,10 +83,10 @@ If you really want to go all-in, then look up Cloudflare WAF
 
 I added another version of 'xenforo.hh' which has DragonByte support. Currently it's able to return all licenses; their expiry date, license id and product id. I will update the 'gui.cc' when I have some spare time, so it uses the returned data to display it. 
 
-<h3>DX11 version for sale</h3>
+<h3>IPB authentication (Invision Power Board) supported [$]</h3>
 
-Check https://www.youtube.com/watch?v=NhSRl99HXaM for more information
+Provides the same if not better functionality than the XenForo authentication. Has the same features + entering email also works for username. Read the youtube description for more detailed information about the custom IPB authentication.  
+I can do expiry dates with IPB for subscriptions as well.  
++ It is possible to retrieve any information stored in the mySQL database, including the user's IP address or other stuff, if you wish to display it in your loader/UI.  
 
-https://github.com/REVRBE/imgui-cheat-loader/assets/129604052/bc8d41a5-05a0-4d6e-af67-687ac1bf8775
-
-(sorry for bad video quality, I had to compress it in order to get it under 10MB)
+[https://youtu.be/aMeagH1hm3U](https://youtu.be/aMeagH1hm3U)
